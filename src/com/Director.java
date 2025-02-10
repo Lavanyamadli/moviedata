@@ -47,6 +47,7 @@ public class Director {
         this.nationality = nationality;
     }
 
+
     @Override
     public String toString() {
         return "Director{" +

@@ -8,7 +8,7 @@ public class MovieDataManager {
     private Map<Integer, Actor> actors = new HashMap<>();
     private Map<Integer, Director> directors = new HashMap<>();
 
-    // Load movies from CSV
+
     public void loadMoviesFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Acer\\OneDrive\\Desktop\\java1stday\\Management\\data\\movies.csv"))) {
             String line;
@@ -33,7 +33,7 @@ public class MovieDataManager {
     }
 
 
-    // Load actors from CSV
+
     public void loadActorsFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Acer\\OneDrive\\Desktop\\java1stday\\Management\\data\\actors.csv"))) {
             String line;
@@ -54,7 +54,7 @@ public class MovieDataManager {
         }
     }
 
-    // Load directors from CSV
+
     public void loadDirectorsFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Acer\\OneDrive\\Desktop\\java1stday\\Management\\data\\directors.csv"))) {
             String line;
@@ -74,7 +74,7 @@ public class MovieDataManager {
         }
     }
 
-    // Get Movie by ID or Title
+
     public Movie getMovie(String idOrTitle) {
         return movies.values().stream()
                 .filter(m -> String.valueOf(m.getMovieId()).equalsIgnoreCase(idOrTitle)
@@ -91,14 +91,14 @@ public class MovieDataManager {
                 .collect(Collectors.toList());
     }
 
-    // Get Movies by Genre
+
     public List<Movie> getMoviesByGenre(String genre) {
         return movies.values().stream()
                 .filter(movie -> movie.getGenre().equalsIgnoreCase(genre))
                 .collect(Collectors.toList());
     }
 
-    // Get Movies by Director
+
     public List<Movie> getMoviesByDirector(String directorName) {
         return movies.values().stream()
                 .filter(movie -> directors.containsKey(movie.getDirectorId()) &&
@@ -106,19 +106,19 @@ public class MovieDataManager {
                 .collect(Collectors.toList());
     }
 
-    // Get Movies by Release Year
+
     public List<Movie> getMoviesByYear(int year) {
         return movies.values().stream()
                 .filter(movie -> movie.getReleaseYear() == year)
                 .collect(Collectors.toList());
     }
 
-    // Add a New Movie
+
     public void addMovie(Movie movie) {
         movies.put(movie.getMovieId(), movie);
     }
 
-    // Update Movie Rating
+
     public void updateMovieRating(int movieId, double newRating) {
         Movie movie = movies.get(movieId);
         if (movie != null) {
@@ -126,12 +126,12 @@ public class MovieDataManager {
         }
     }
 
-    // Delete a Movie
+
     public void deleteMovie(int movieId) {
         movies.remove(movieId);
     }
 
-    // Get Sorted Movies by Release Year (limit to 15)
+
     public List<Movie> getSortedMoviesByYear() {
         return movies.values().stream()
                 .sorted(Comparator.comparingInt(Movie::getReleaseYear))

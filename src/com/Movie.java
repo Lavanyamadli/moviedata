@@ -10,7 +10,7 @@ public class Movie {
     private int directorId;
     private int actorIds;
 
-    // Constructor
+
     public Movie(int movieId, String title, int releaseYear, String genre, double rating, int duration, int directorId, int actorIds) {
         this.movieId = movieId;
         this.title = title;
@@ -22,7 +22,6 @@ public class Movie {
         this.actorIds = actorIds;
     }
 
-    // Getters and Setters
     public int getMovieId() {
         return movieId;
     }
